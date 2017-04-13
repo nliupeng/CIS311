@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mp2 One</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+		<nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../mp.html">MicroProject</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
+                                <li><a href="../mp1/two.html">Surpriser</a></li>
+                                <li><a href="../mp1/three.html">Repeater</a></li>
+                                <li><a href="../mp1/four.html">Calculator</a></li>
+	                        </ul>
+                        </li>
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="one.html">Profile</a></li>
+                                <li><a href="two.html">Revealer</a></li>
+                                <li><a href="three.html">Warnings</a></li>
+	                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+           
+        <!-- Content -->
+        <div class="container">
+        	<h1>Example Two</h1>    
+
+        	<h3>Revealer</h3>
+        	<p>Click on the buttons to reveal hidden information.</p>
+
+        	<div class="alert alert-info">
+				<strong id="title"></strong> <p id="info"></p>
+			</div>
+
+        	<button class="btn btn-primary" onclick="showAlert(1)">Reveal 1</button>
+        	<button class="btn btn-primary" onclick="showAlert(2)">Reveal 2</button>
+        	<button class="btn btn-primary" onclick="showAlert(3)">Reveal 3</button>
+        	<button class="btn btn-primary" onclick="showAlert(4)">Reveal 2</button>
+        	<button class="btn btn-primary" onclick="showAlert(5)">Reveal 3</button>
+        </div>     
+          
+
+        <script>
+        	var myObj = {};
+
+        	function showAlert(number) {
+        		switch(number) {
+        			case 1:
+        				myObj.title = "Fun Fact:";
+        				myObj.info = "The first website built was at CERN within the border of France, and was first put online on 6 August 1991: Info.cern.ch was the address of the world's first-ever web site and web server, running on a NeXT computer at CERN.";
+        				break;
+        			case 2:
+        				myObj.title = "Did you know?";
+        				myObj.info = "The 3 most common languages in the world are Mandarin Chinese, Spanish and English";
+        				break;
+        			case 3:
+        				myObj.title = "Whoa!";
+        				myObj.info = "The first letters of the months July through to November spell JASON";
+        				break;
+        			case 4:
+        				myObj.title = "Are you feeling curious?";
+        				myObj.info = "Bananas do not grow on trees. Rather, they grow from a root structure that produces an above ground stem. The plant is specifically classified as an arborescent (tree-like) perennial herb; in fact, it is the largest herbaceous flowering plant. The banana plant being an herb is that the banana itself is a berry.";
+        				break;
+        			case 5:
+        				myObj.title = "Science Fact: ";
+        				myObj.info = "Apollo 11 was the spaceflight that landed the first humans on the Moon, Americans Neil Armstrong and Buzz Aldrin, on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface six hours later on July 21 at 02:56 UTC.";
+        				break;
+        			default:
+        				myObj.title = "Fun Fact:";
+        				myObj.info = "Lightning strikes the Earth 6,000 times every minute";
+        		}
+        		document.getElementById("title").innerHTML = myObj.title;
+        		document.getElementById("info").innerHTML = myObj.info;
+        	}
+        </script>
+
+
+        <!-- Scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Bootstrap core JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>

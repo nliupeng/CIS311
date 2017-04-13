@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mp2 One</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+		<nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../mp.html">MicroProject</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
+                                <li><a href="../mp1/two.html">Surpriser</a></li>
+                                <li><a href="../mp1/three.html">Repeater</a></li>
+                                <li><a href="../mp1/four.html">Calculator</a></li>
+	                        </ul>
+                        </li>
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="one.html">Profile</a></li>
+                                <li><a href="two.html">Revealer</a></li>
+                                <li><a href="three.html">Warnings</a></li>
+	                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+           
+        <!-- Content -->
+        <div class="container">
+        	<h1>Example Three</h1>    
+
+        	<h3>Warnings</h3>
+        	<p>Don't touch the button!!</p>
+
+        	<div id="myAlert" role="alert">
+				<strong id="message"></strong> 
+			</div>
+
+        	<button id="button" class="btn btn-info" onclick="warn()">Don't click me!</button>
+        </div>     
+          
+
+        <script>
+        	var alert = document.getElementById("myAlert");
+        	var button = document.getElementById("button");
+        	var message = document.getElementById("message");
+
+        	var angryMan = {
+        		name: "Angry Man",
+        		message: "Don't ever touch the button.",
+        		angryLevel: 0
+        	};
+
+        	function warn() {
+        		angryMan.angryLevel++;
+
+        		switch(angryMan.angryLevel) {
+        			case 1:
+        				angryMan.message = "I told you not to touch the button!";
+        				alert.className = "alert alert-success";
+        				button.innerHTML = "Don't click me again"
+        				button.className = "btn btn-success";
+        				break;
+        			case 2:
+        				angryMan.message = "What did I tell you!";
+        				alert.className = "alert alert-info";
+        				button.innerHTML = "I dare you not to touch it again!"
+        				button.className = "btn btn-info";
+        				break;
+        			case 3:
+        				angryMan.message = "I'm getting angryyy!!";
+        				alert.className = "alert alert-warning";
+        				button.innerHTML = "DON'T DO IT AGAIN"
+        				button.className = "btn btn-warning";
+        				break;
+        			case 4:
+        				angryMan.message = "YOU BETTER START RUNNING!!";
+        				alert.className = "alert alert-danger";
+        				button.innerHTML = "AARRGHGH!!!"
+        				button.className = "btn btn-danger";
+        				break;
+        		}        		
+        		message.innerHTML = angryMan.message;
+        	}
+        </script>
+
+
+        <!-- Scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Bootstrap core JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>

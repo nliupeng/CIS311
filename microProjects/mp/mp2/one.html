@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mp2 One</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+		<nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../mp.html">MicroProject</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
+                                <li><a href="../mp1/two.html">Surpriser</a></li>
+                                <li><a href="../mp1/three.html">Repeater</a></li>
+                                <li><a href="../mp1/four.html">Calculator</a></li>
+	                        </ul>
+                        </li>
+                        <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="one.html">Profile</a></li>
+                                <li><a href="two.html">Revealer</a></li>
+                                <li><a href="three.html">Warnings</a></li>
+	                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+           
+        <!-- Content -->
+        <div class="container">
+        	<h1>Example One</h1>    
+
+        	<h3>Profile</h3>
+        	<p>The information below comes from a JavaScript object. Click button to show data in labels.</p>
+
+        	<button class="btn btn-primary" onclick="showLabels()">Show me data!</button>
+
+        	<div>
+	        	<span id="name" class="label label-default"></span>
+	        	<span id="address" class="label label-default"></span>
+	        	<span id="age" class="label label-default"></span>
+        	</div>
+        </div>     
+          
+
+        <script>
+        	var myObj = {
+        		name: "John Smith",
+        		address: "1234 Wonder Ln, Brentwood, CA",
+        		age: 24
+        	};
+
+        	function showLabels() {
+        		document.getElementById("name").innerHTML = myObj.name;
+        		document.getElementById("address").innerHTML = myObj.address;
+        		document.getElementById("age").innerHTML = myObj.age;
+        	}
+        </script>
+
+
+        <!-- Scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Bootstrap core JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+
+</html>
