@@ -54,22 +54,29 @@
 
         	<button class="btn btn-primary" onclick="showLabels()">Show me data!</button>
 
-        	<div>
-	        	<span id="name" class="label label-default"></span>
-	        	<span id="address" class="label label-default"></span>
-	        	<span id="age" class="label label-default"></span>
+        	<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 id="title" class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                    <span id="name" class="label label-default"></span>
+                    <span id="address" class="label label-default"></span>
+                    <span id="age" class="label label-default"></span>
+                </div>	        	
         	</div>
         </div>     
           
 
         <script>
         	var myObj = {
+                title: "My Object's Data",
         		name: "John Smith",
         		address: "1234 Wonder Ln, Brentwood, CA",
         		age: 24
         	};
 
         	function showLabels() {
+                document.getElementById("title").innerHTML = myObj.title;
         		document.getElementById("name").innerHTML = myObj.name;
         		document.getElementById("address").innerHTML = myObj.address;
         		document.getElementById("age").innerHTML = myObj.age;

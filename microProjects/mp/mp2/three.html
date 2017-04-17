@@ -52,8 +52,10 @@
         	<h3>Warnings</h3>
         	<p>Don't touch the button!!</p>
 
-        	<div id="myAlert" role="alert">
-				<strong id="message"></strong> 
+        	<div id="myPanel">
+                <div class="panel-heading">
+                    <strong id="message"></strong>
+                </div>				 
 			</div>
 
         	<button id="button" class="btn btn-info" onclick="warn()">Don't click me!</button>
@@ -61,7 +63,7 @@
           
 
         <script>
-        	var alert = document.getElementById("myAlert");
+        	var panel = document.getElementById("myPanel");
         	var button = document.getElementById("button");
         	var message = document.getElementById("message");
 
@@ -77,25 +79,25 @@
         		switch(angryMan.angryLevel) {
         			case 1:
         				angryMan.message = "I told you not to touch the button!";
-        				alert.className = "alert alert-success";
+        				panel.className = "panel panel-success";
         				button.innerHTML = "Don't click me again"
         				button.className = "btn btn-success";
         				break;
         			case 2:
         				angryMan.message = "What did I tell you!";
-        				alert.className = "alert alert-info";
+        				panel.className = "panel panel-info";
         				button.innerHTML = "I dare you not to touch it again!"
         				button.className = "btn btn-info";
         				break;
         			case 3:
         				angryMan.message = "I'm getting angryyy!!";
-        				alert.className = "alert alert-warning";
+        				panel.className = "panel panel-warning";
         				button.innerHTML = "DON'T DO IT AGAIN"
         				button.className = "btn btn-warning";
         				break;
         			case 4:
         				angryMan.message = "YOU BETTER START RUNNING!!";
-        				alert.className = "alert alert-danger";
+        				panel.className = "panel panel-danger";
         				button.innerHTML = "AARRGHGH!!!"
         				button.className = "btn btn-danger";
         				break;
