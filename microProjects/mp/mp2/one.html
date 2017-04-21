@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mp2 One</title>
+		<title>One</title>
 
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP1 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
                                 <li><a href="../mp1/two.html">Surpriser</a></li>
@@ -33,7 +33,7 @@
 	                        </ul>
                         </li>
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP2 and MP3 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="one.html">Profile</a></li>
                                 <li><a href="two.html">Revealer</a></li>
@@ -47,27 +47,41 @@
            
         <!-- Content -->
         <div class="container">
-        	<h1>Example One</h1>    
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Example MP2.1</h1>    
 
-        	<h3>Profile</h3>
-        	<p>The information below comes from a JavaScript object. Click button to show data in labels.</p>
+                    <h3>Profile</h3>
+                    <p>The information below comes from an object. Click button to show data in labels.</p>
 
-        	<button class="btn btn-primary" onclick="showLabels()">Show me data!</button>
+                    <button class="btn btn-primary" onclick="showLabels()">Show me data!</button>
 
-        	<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 id="title" class="panel-title"></h3>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 id="title" class="panel-title"></h3>
+                        </div>
+                        <div class="panel-body">
+                            <span id="name" class="label label-default"></span>
+                            <span id="address" class="label label-default"></span>
+                            <span id="age" class="label label-default"></span>
+                        </div>              
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <span id="name" class="label label-default"></span>
-                    <span id="address" class="label label-default"></span>
-                    <span id="age" class="label label-default"></span>
-                </div>	        	
-        	</div>
-        </div>     
+                <div class="col-md-6">
+                    <h1>Example MP3.1</h1>    
+
+                    <p>The following info comes from a JSON object:</p>
+
+                    <div id="array"></div>
+                </div>
+            </div>
+        	
+        </div>    
+
           
 
         <script>
+            // MP2
         	var myObj = {
                 title: "My Object's Data",
         		name: "John Smith",
@@ -81,6 +95,21 @@
         		document.getElementById("address").innerHTML = myObj.address;
         		document.getElementById("age").innerHTML = myObj.age;
         	}
+
+            // MP3
+            var text = '{"characters":[' +
+                '{"firstName":"Mickey","lastName":"Mouse" },' +
+                '{"firstName":"Mary","lastName":"Jones" },' +
+                '{"firstName":"Peter","lastName":"Pan" }]}';
+            
+            var data = JSON.parse(text);
+            
+            data.characters.forEach(function(item) {
+                var node = document.createElement("p");                
+                var textnode = document.createTextNode(item.firstName + " " + item.lastName);      
+                node.appendChild(textnode);                             
+                document.getElementById("array").appendChild(node); 
+            })
         </script>
 
 

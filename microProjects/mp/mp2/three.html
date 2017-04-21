@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mp2 One</title>
+		<title>Three</title>
 
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP1 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
                                 <li><a href="../mp1/two.html">Surpriser</a></li>
@@ -33,7 +33,7 @@
 	                        </ul>
                         </li>
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP2 and MP3 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="one.html">Profile</a></li>
                                 <li><a href="two.html">Revealer</a></li>
@@ -47,22 +47,42 @@
            
         <!-- Content -->
         <div class="container">
-        	<h1>Example Three</h1>    
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Example MP2.3</h1>    
 
-        	<h3>Warnings</h3>
-        	<p>Don't touch the button!!</p>
+                    <h3>Warnings</h3>
+                    <p>Don't touch the button!!</p>
 
-        	<div id="myPanel">
-                <div class="panel-heading">
-                    <strong id="message"></strong>
-                </div>				 
-			</div>
+                    <div id="myPanel">
+                        <div class="panel-heading">
+                            <strong id="message"></strong>
+                        </div>               
+                    </div>
 
-        	<button id="button" class="btn btn-info" onclick="warn()">Don't click me!</button>
+                    <button id="button" class="btn btn-info" onclick="warn()">Don't click me!</button>
+                </div>
+                <div class="col-md-6">
+                    <h1>Example MP3.3</h1>    
+
+                    <h3>Warnings</h3>
+                    <p>If you wanna hear scary stories...</p>
+
+                    <div class="panel panel-danger">
+                        <div id="array" class="panel-heading">
+                        </div>               
+                    </div>
+
+                    <button id="button" class="btn btn-warning" onclick="trigger()">If you click me...</button>
+                </div>
+            </div>        	
+
+        	
         </div>     
           
 
         <script>
+            // MP2
         	var panel = document.getElementById("myPanel");
         	var button = document.getElementById("button");
         	var message = document.getElementById("message");
@@ -104,6 +124,22 @@
         		}        		
         		message.innerHTML = angryMan.message;
         	}
+
+            // MP3
+            function trigger() {
+                var output = document.getElementById("array");
+                output.innerHTML = "";
+
+                var text = '{"warnings":[{"message": "A Sesame Street episode in the year 1976 scared children so much, that the authorities had to pull it off air after several complaints that were made by parents, whose kids screamed in horror."},' + 
+                        '{"message": "A Missouri couple sued the seller of a house, from whom they had bought it, when they discovered that Brown Recluse Spiders were \'bleeding out of the walls.\' It was estimated by an expert that around 4,000-5,000 spiders had infested the house."},' + 
+                        '{"message": "There is a brain-eating amoeba (Naegleria Fowleri) that lives in fresh water bodies. It can kill a human in seven days. Death rate is 98% and there is no effective treatment against it."}]}';
+            
+                var data = JSON.parse(text);
+            
+                data.warnings.forEach(function(item) {            
+                    output.innerHTML += item.message + "<br><br>";
+                })
+            }
         </script>
 
 

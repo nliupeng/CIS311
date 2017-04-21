@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mp2 One</title>
+		<title>Two</title>
 
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP1 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP1 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="../mp1/one.html">Capitalizer</a></li>
                                 <li><a href="../mp1/two.html">Surpriser</a></li>
@@ -33,7 +33,7 @@
 	                        </ul>
                         </li>
                         <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples MP2 <span class="caret"></span></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MP2 and MP3 <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="one.html">Profile</a></li>
                                 <li><a href="two.html">Revealer</a></li>
@@ -47,29 +47,48 @@
            
         <!-- Content -->
         <div class="container">
-        	<h1>Example Two</h1>    
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Example MP2.2</h1>    
 
-        	<h3>Revealer</h3>
-        	<p>Click on the buttons to reveal hidden information.</p>
+                    <h3>Revealer</h3>
+                    <p>Click on the buttons to reveal hidden information.</p>
 
-        	<div class="panel panel-info">
-                <div class="panel-heading">
-                    <strong id="title"></strong>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <strong id="title"></strong>
+                        </div>
+                        <div class="panel-body">
+                            <p id="info"></p>
+                        </div>               
+                    </div>
+
+                    <button class="btn btn-primary" onclick="showAlert(1)">Reveal 1</button>
+                    <button class="btn btn-primary" onclick="showAlert(2)">Reveal 2</button>
+                    <button class="btn btn-primary" onclick="showAlert(3)">Reveal 3</button>
+                    <button class="btn btn-primary" onclick="showAlert(4)">Reveal 2</button>
+                    <button class="btn btn-primary" onclick="showAlert(5)">Reveal 3</button>
                 </div>
-                <div class="panel-body">
-                    <p id="info"></p>
-                </div>				 
-			</div>
 
-        	<button class="btn btn-primary" onclick="showAlert(1)">Reveal 1</button>
-        	<button class="btn btn-primary" onclick="showAlert(2)">Reveal 2</button>
-        	<button class="btn btn-primary" onclick="showAlert(3)">Reveal 3</button>
-        	<button class="btn btn-primary" onclick="showAlert(4)">Reveal 2</button>
-        	<button class="btn btn-primary" onclick="showAlert(5)">Reveal 3</button>
+                <div class="col-md-6">
+                    <h1>Example MP3.2</h1>    
+
+                    <h3>Revealer</h3>
+                    <p>The following information is an attempt for replicating MP2.2, but using JSON array instead.</p>
+
+                    <div id="myPanel" class="panel panel-info">          
+                    </div>
+
+                    <button class="btn btn-primary" onclick="showAlerts()">Reveal All</button>
+
+                </div>
+                
+            </div>        	
         </div>     
           
 
         <script>
+            // MP2
         	var myObj = {};
 
         	function showAlert(number) {
@@ -101,6 +120,47 @@
         		document.getElementById("title").innerHTML = myObj.title;
         		document.getElementById("info").innerHTML = myObj.info;
         	}
+
+            // MP3
+            var text = '{"quotes": [{"title": "Fun Fact:", "info": "The first website built was at CERN within the border of France, and was first put online on 6 August 1991: Info.cern.ch was the address of the world\'s first-ever web site and web server, running on a NeXT computer at CERN."},' + 
+                        '{"title": "Did you know?", "info": "The 3 most common languages in the world are Mandarin Chinese, Spanish and English"},' +
+                        '{"title": "WHOA!", "info": "The first letters of the months July through to November spell JASON"},' + 
+                        '{"title": "Are you feeling curious?", "info": "Bananas do not grow on trees. Rather, they grow from a root structure that produces an above ground stem. The plant is specifically classified as an arborescent (tree-like) perennial herb; in fact, it is the largest herbaceous flowering plant. The banana plant being an herb is that the banana itself is a berry."},' + 
+                        '{"title": "Science Fact: ", "info": "Apollo 11 was the spaceflight that landed the first humans on the Moon, Americans Neil Armstrong and Buzz Aldrin, on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface six hours later on July 21 at 02:56 UTC."}]}';
+            
+            var data = JSON.parse(text);      
+
+            function showAlerts() {    
+                var panelHeading; 
+                var panelBody;           
+
+                data.quotes.forEach(function(item) {
+                    // panel heading
+                    panelHeading = document.createElement("div");
+                    panelHeading.setAttribute("class", "panel-heading");
+
+                    // panel body
+                    panelBody = document.createElement("div");
+                    panelBody.setAttribute("class", "panel-body");
+
+                    // title for heading
+                    var node = document.createElement("strong");                
+                    var textnode = document.createTextNode(item.title);      
+                    node.appendChild(textnode);   
+
+                    // info for body
+                    var node2 = document.createElement("p");                
+                    var textnode2 = document.createTextNode(item.info);      
+                    node2.appendChild(textnode2);    
+
+                    // attach nodes to panel divs
+                    panelHeading.appendChild(node);
+                    panelBody.appendChild(node2);
+                                            
+                    document.getElementById("myPanel").appendChild(panelHeading);  
+                    document.getElementById("myPanel").appendChild(panelBody);  
+                })   
+            }
         </script>
 
 
